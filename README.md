@@ -17,12 +17,15 @@ Placed at the beginning of foilmaker.py file:
 * wbrMask processing parametrization:
 	* THR_BLACK - threshold effect black colors usage
 	* THR_WHITE - threshold effect white colors usage
+	* GLOW_RADIUS - glow effect radius value
+	* GLOW_BRIGHT - glow effect brightness
+	* GLOW_SHARP - glow effect sharpness
 	* EFFECT_OPACITY - final effect opacity
 
 # Usage
 foilmaker.py <output_dir_path> <image/images_path>
 
-Examples:
+Examplary usage:
 * foilmaker.py C:/MyFoils/ D:/CardImages/card01.jpg
 * foilmaker.py C:/MyFoils/ D:/CardImages/card01.jpg D:/CardImages/card02.jpg
 * foilmaker.py C:/MyFoils/ D:/CardImages/*.jpg
