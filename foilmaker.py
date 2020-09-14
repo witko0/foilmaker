@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys, ntpath;
+import os, sys, ntpath;
 
 g = sys.modules[__name__]
 
@@ -27,7 +27,7 @@ g.THR_WHITE = 0.95    # 0-1
 g.GLOW_RADIUS = 12.4  # 1-50
 g.GLOW_BRIGHT = 0.32  # 0-1
 g.GLOW_SHARP = 0.7    # 0-1
-g.EFFECT_OPACITY = 27 # 0-100%
+g.EFFECT_OPACITY = 38 # 0-100%
 
 # TODO: sizes are now adjusted to card size: 357x497 (will be changed to % value)
 g.SKIP_PIC_HARD_POS_X = 39
@@ -45,6 +45,7 @@ g.SKIP_PIC_SOFT_HARDNESS = 0.81 # 0-1
 # this method parses different card types in order to decrease foil effect influence on unwanted image parts
 def setPortraitBypassParams(cardtype):
     if cardtype == "lotrtcg_character":
+        g.EFFECT_OPACITY = 38 # 0-100%
         g.SKIP_PIC_HARD = True
         g.SKIP_PIC_SOFT = False
         g.SKIP_PIC_HARD_POS_X = 39
@@ -55,6 +56,7 @@ def setPortraitBypassParams(cardtype):
         g.SKIP_PIC_SOFT_POS_Y = 171
         g.SKIP_PIC_SOFT_SIZE = 343      # 1-10000
     elif cardtype == "lotrtcg_modifier":
+        g.EFFECT_OPACITY = 38 # 0-100%
         g.SKIP_PIC_HARD = True
         g.SKIP_PIC_SOFT = False
         g.SKIP_PIC_HARD_POS_X = 76
@@ -131,7 +133,8 @@ def wbrMask(fname, cardtype, outputpath):
 
 	# file export
     card.merge_visible_layers(NORMAL_MODE)
-    pdb.file_png_save(card, card.layers[0], outputpath + ntpath.basename(fname), outputpath + ntpath.basename(fname), 0, 9, 1, 0, 0, 1, 1)
+    #pdb.file_png_save(card, card.layers[0], outputpath + ntpath.basename(fname), outputpath + ntpath.basename(fname), 0, 9, 1, 0, 0, 1, 1)
+    pdb.file_png_save_defaults(card, card.layers[0], os.path.splitext(outputpath + ntpath.basename(fname))[0] + ".png", os.path.splitext(outputpath + ntpath.basename(fname))[0] + ".png")
     pdb.gimp_image_delete(card)
 
 
