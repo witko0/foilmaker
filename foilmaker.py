@@ -67,8 +67,12 @@ def setPortraitBypassParams(cardtype):
         g.SKIP_PIC_SOFT_POS_Y = 148
         g.SKIP_PIC_SOFT_SIZE = 308      # 1-10000
     elif cardtype == "lotrtcg_site":
-        g.SKIP_PIC_HARD = False
+        g.SKIP_PIC_HARD = True
         g.SKIP_PIC_SOFT = False
+        g.SKIP_PIC_HARD_POS_X = 46
+        g.SKIP_PIC_HARD_POS_Y = 52
+        g.SKIP_PIC_HARD_SIZE_X = 220
+        g.SKIP_PIC_HARD_SIZE_Y = 389
         g.SKIP_PIC_SOFT_POS_X = 165
         g.SKIP_PIC_SOFT_POS_Y = 247
         g.SKIP_PIC_SOFT_SIZE = 407      # 1-10000
